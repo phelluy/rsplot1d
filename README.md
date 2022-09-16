@@ -1,5 +1,12 @@
 # rsplot1d
-Simple utility for plotting 1d curves in Rust. It generates a Python script based on matplotlib and launches it.
+Simple utility for plotting 1d curves in Rust.
+
+It generate a data file `rsplot1d.dat`
+and a Python script `rsplot1d.py` for plotting the data.
+
+It also launches automatically the Python script.
+
+It requires a working installation of Python3 and matplotlib.
 
 Example that plots the $\sin$ and $\cos$ function on the interval $[0,2 \pi]$:
 

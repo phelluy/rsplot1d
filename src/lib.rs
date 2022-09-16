@@ -22,7 +22,7 @@ pub fn plot1d(x: &Vec<f64>, y: &Vec<f64>, z: &Vec<f64>) {
     use std::fs::File;
     use std::io::BufWriter;
     use std::io::Write;
-    let filename = "ploplo.dat";
+    let filename = "rsplot1d.dat";
     {
         let meshfile = File::create(filename).unwrap();
         let mut meshfile = BufWriter::new(meshfile); // create a buffer for faster writes...
@@ -36,7 +36,7 @@ pub fn plot1d(x: &Vec<f64>, y: &Vec<f64>, z: &Vec<f64>) {
 
     use std::process::Command;
     Command::new("python3")
-        .arg("plot1d.py")
+        .arg("rsplot1d.py")
         .status()
         .expect("plot failed: you probably need to install python3 and matplotlib");
 }
@@ -66,7 +66,7 @@ show()
     use std::io::BufWriter;
     use std::io::Write;
 
-    let meshfile = File::create("plot1d.py").unwrap();
+    let meshfile = File::create("rsplot1d.py").unwrap();
     let mut meshfile = BufWriter::new(meshfile); // create a buffer for faster writes...
     writeln!(meshfile, "{}", pycom).unwrap();
 }
