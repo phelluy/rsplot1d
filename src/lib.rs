@@ -47,7 +47,7 @@ fn writepy() {
 from matplotlib.pyplot import *
 #from math import *
 
-with open("ploplo.dat", "r") as f:
+with open("rsplot1d.dat", "r") as f:
     contenu = f.read().split()
 
 #print(contenu)
