@@ -3,6 +3,7 @@
 //! # Example
 //! ```
 //! use rsplot1d::plot1d;
+//! use rsplot1d::plot;
 //! let nx = 1000;
 //! let h = 2. * std::f64::consts::PI / nx as f64;
 //! 
@@ -12,12 +13,38 @@
 //! let cxi = xi.iter().map(|x| x.cos()).collect();
 //! 
 //! plot1d(&xi, &sxi, &cxi); 
+//! plot(&xi[0..nx], &sxi[0..nx], &cxi[0..nx]);
 //! ```
 //! 
 
 // cette fonction permet de tracer les vecteurs y et z en fonction de x
 // mettre 2 fois y si on ne veut tracer que y
 pub fn plot1d(x: &Vec<f64>, y: &Vec<f64>, z: &Vec<f64>) {
+    writepy();
+    use std::fs::File;
+    use std::io::BufWriter;
+    use std::io::Write;
+    let filename = "rsplot1d.dat";
+    {
+        let meshfile = File::create(filename).unwrap();
+        let mut meshfile = BufWriter::new(meshfile); // create a buffer for faster writes...
+
+        x.iter()
+            .zip(y.iter().zip(z.iter()))
+            .for_each(|(x, (y, z))| {
+                writeln!(meshfile, "{} {} {}", *x, *y, *z).unwrap();
+            });
+    }
+
+    use std::process::Command;
+    Command::new("python3")
+        .arg("rsplot1d.py")
+        .status()
+        .expect("plot failed: you probably need to install python3 and matplotlib");
+}
+
+// même fonction mais avec des slices
+pub fn plot(x: &[f64], y: &[f64], z: &[f64]) {
     writepy();
     use std::fs::File;
     use std::io::BufWriter;

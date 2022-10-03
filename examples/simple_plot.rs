@@ -1,6 +1,7 @@
 
 fn main() {
     use rsplot1d::plot1d;
+    use rsplot1d::plot;
 
     let nx = 1000;
     let h = 2. * std::f64::consts::PI / nx as f64;
@@ -11,5 +12,8 @@ fn main() {
     let cxi = xi.iter().map(|x| x.cos()).collect();
 
     plot1d(&xi, &sxi, &cxi);
+
+    // avec des slices
+    plot(&xi, &sxi, &cxi);
 
 }
