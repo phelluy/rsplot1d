@@ -12,6 +12,7 @@ Example that plots the $\sin$ and $\cos$ function on the interval $[0,2 \pi]$:
 
 ```rust
     use rsplot1d::plot1d;
+    use rsplot1d::plot;
 
     let nx = 1000;
     let h = 2. * std::f64::consts::PI / nx as f64;
@@ -22,6 +23,7 @@ Example that plots the $\sin$ and $\cos$ function on the interval $[0,2 \pi]$:
     let cxi = xi.iter().map(|x| x.cos()).collect();
 
     plot1d(&xi, &sxi, &cxi);
+    plot1d(&xi[0..nx+1], &sxi[0..nx+1], &cxi[0..nx+1]);    
 ```
 
 Don't forget to add the line
