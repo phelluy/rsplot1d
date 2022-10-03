@@ -13,7 +13,7 @@
 //! let cxi = xi.iter().map(|x| x.cos()).collect();
 //! 
 //! plot1d(&xi, &sxi, &cxi); 
-//! plot(&xi[0..nx], &sxi[0..nx], &cxi[0..nx]);
+//! plot(&xi[0..nx+1], &sxi[0..nx+1], &cxi[0..nx+1]);
 //! ```
 //! 
 
