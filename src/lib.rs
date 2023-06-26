@@ -37,7 +37,7 @@ pub fn plot1d(x: &Vec<f64>, y: &Vec<f64>, z: &Vec<f64>) {
     }
 
     use std::process::Command;
-    Command::new("python3")
+    Command::new("python")
         .arg("rsplot1d.py")
         .status()
         .expect("plot failed: you probably need to install python3 and matplotlib");
