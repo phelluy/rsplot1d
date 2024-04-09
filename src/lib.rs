@@ -84,8 +84,8 @@ np = len(contenu)//3
 x = [float(contenu[3*i]) for i in range(np)]
 y = [float(contenu[3*i+1]) for i in range(np)]
 z = [float(contenu[3*i+2]) for i in range(np)]
-plot(x, y, color="blue")
-plot(x, z, color="red")
+plot(x, y, color="blue", legend="1")
+plot(x, z, color="red", legend="2")
 show()
 "#;
 
