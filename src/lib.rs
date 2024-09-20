@@ -62,7 +62,7 @@ pub fn plot(x: &[f64], y: &[f64], z: &[f64]) {
     }
 
     use std::process::Command;
-    Command::new("python")
+    Command::new("python3")
         .arg("rsplot1d.py")
         .status()
         .expect("plot failed: you probably need to install python3 and matplotlib");
